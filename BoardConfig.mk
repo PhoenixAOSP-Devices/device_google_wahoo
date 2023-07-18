@@ -63,12 +63,6 @@ BOARD_USES_RECOVERY_AS_BOOT := true
 BOARD_BUILD_SYSTEM_ROOT_IMAGE := true
 BOARD_USES_METADATA_PARTITION := true
 
-# Kernel
-BOARD_KERNEL_IMAGE_NAME := Image.lz4-dtb
-TARGET_COMPILE_WITH_MSM_KERNEL := true
-TARGET_KERNEL_SOURCE := kernel/google/wahoo
-TARGET_NEEDS_DTBOIMAGE := true
-
 # Partitions (listed in the file) to be wiped under recovery.
 TARGET_RECOVERY_FSTAB := device/google/wahoo/fstab.hardware
 
@@ -94,6 +88,7 @@ BOARD_PRODUCTIMAGE_PARTITION_SIZE := 3221225472
 BOARD_PRODUCTIMAGE_FILE_SYSTEM_TYPE  := ext4
 
 # DTBO partition definitions
+BOARD_PREBUILT_DTBOIMAGE := device/google/wahoo-kernel/dtbo.img
 BOARD_DTBOIMG_PARTITION_SIZE := 8388608
 
 TARGET_COPY_OUT_VENDOR := vendor

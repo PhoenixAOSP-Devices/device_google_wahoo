@@ -56,7 +56,16 @@ SRC_CAMERA_HAL_DIR := hardware/qcom/camera/msm8998
 
 TARGET_PRODUCT_PROP := $(LOCAL_PATH)/product.prop
 
+# Get kernel-headers
+$(call inherit-product, hardware/qcom/msm8998/msm8998.mk)
+
 $(call inherit-product, device/google/wahoo/utils.mk)
+
+ifeq ($(TARGET_PREBUILT_KERNEL),)
+    LOCAL_KERNEL := device/google/wahoo-kernel/Image.lz4
+else
+    LOCAL_KERNEL := $(TARGET_PREBUILT_KERNEL)
+endif
 
 PRODUCT_CHARACTERISTICS := nosdcard
 PRODUCT_SHIPPING_API_LEVEL := 26
@@ -64,6 +73,7 @@ PRODUCT_SHIPPING_API_LEVEL := 26
 DEVICE_PACKAGE_OVERLAYS += $(LOCAL_PATH)/overlay
 
 PRODUCT_COPY_FILES += \
+    $(LOCAL_KERNEL):kernel \
     $(LOCAL_PATH)/init.recovery.hardware.rc:recovery/root/init.recovery.$(PRODUCT_HARDWARE).rc \
     $(LOCAL_PATH)/init.hardware.usb.rc:$(TARGET_COPY_OUT_VENDOR)/etc/init/hw/init.wahoo.usb.rc \
     $(LOCAL_PATH)/ueventd.hardware.rc:$(TARGET_COPY_OUT_VENDOR)/ueventd.rc \
