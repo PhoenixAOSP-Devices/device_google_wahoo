@@ -1,3 +1,6 @@
+# Device mask
+ro.build.fingerprint=google/redfin/redfin:13/TQ3A.230705.001/10216780:user/release-keys
+ro.build.description=redfin-user 13 TQ3A.230705.001 10216780 release-keys
 
 persist.rild.nitz_plmn=
 persist.rild.nitz_long_ons_0=
