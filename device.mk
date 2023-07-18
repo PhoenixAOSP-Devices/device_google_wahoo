@@ -853,6 +853,9 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     PackageDebloat
 
+# PhoenixAOSP: Drop Google's ART APEX
+MAINLINE_INCLUDE_ART_MODULE := false
+
 include hardware/google/pixel/vibrator/drv2624/device.mk
 include hardware/google/pixel/mm/device_legacy.mk
 include hardware/google/pixel/thermal/device.mk
